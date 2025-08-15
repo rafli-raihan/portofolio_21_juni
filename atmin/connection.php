@@ -1,7 +1,7 @@
 <?php
 $_HOST = "localhost";
 $_USERNAME = "root";
-$_PASSWORD = "";
+$_PASSWORD = "1234";
 $_DATABASE = "db_porto_rafli_raihan";
 
 

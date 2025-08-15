@@ -4,7 +4,7 @@
      <div>
          <div class="brand-logo d-flex align-items-center justify-content-between">
              <a href="./index.html" class="text-nowrap logo-img">
-                 <img src="../assets/images/logos/logo-light.svg" alt="" />
+                 <img src="assets/images/logos/logo-light.svg" alt="" />
              </a>
              <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                  <i class="ti ti-x fs-8"></i>
@@ -110,18 +110,6 @@
                      </a>
                  </li>
              </ul>
-             <div class="unlimited-access hide-menu bg-primary-subtle position-relative mb-7 mt-7 rounded-3">
-                 <div class="d-flex">
-                     <div class="unlimited-access-title me-3">
-                         <h6 class="fw-semibold fs-4 mb-6 text-dark w-75">Upgrade to pro</h6>
-                         <a href="#" target="_blank"
-                             class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-                     </div>
-                     <div class="unlimited-access-img">
-                         <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
-                     </div>
-                 </div>
-             </div>
          </nav>
          <!-- End Sidebar navigation -->
      </div>

@@ -1,8 +1,6 @@
 <?php
 session_start();
-include 'connection.php';
-
-
+include 'libs/auth/process_login.php';
 ?>
 
 
@@ -12,7 +10,7 @@ include 'connection.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+    <title>Dash_Rafli</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/seodashlogo.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
 </head>
@@ -34,12 +32,12 @@ include 'connection.php';
                                 <p class="text-center">Your Social Campaigns</p>
                                 <form>
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="form-check">

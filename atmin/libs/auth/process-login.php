@@ -1,12 +1,12 @@
 <?php
-include 'libs/connection.php';
+include './libs/connection.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $queryUser = mysqli_query($connection, "SELECT * FROM users WHERE email='$email'");
+    $queryUser = mysqli_query($connection, "SELECT * FROM admin WHERE email='$email'");
     if (!$queryUser) {
         die("Query failed: " . mysqli_error($connection));
     }

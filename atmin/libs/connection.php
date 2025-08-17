@@ -5,8 +5,8 @@ $_PASSWORD = "1234";
 $_DATABASE = "db_porto_rafli_raihan";
 
 
-$koneksi = mysqli_connect($_HOST, $_USERNAME, $_PASSWORD, $_DATABASE);
+$connection = mysqli_connect($_HOST, $_USERNAME, $_PASSWORD, $_DATABASE);
 
-if (!$koneksi) {
+if (!$connection) {
     echo "<h1> koneksi gagal :( </h1>";
 }

@@ -11,15 +11,15 @@ include './libs/handleUserUpdate.php';
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="siteTitle" name="name" placeholder="Enter site title">
+                                <input type="text" class="form-control" id="siteTitle" name="name" value="<?php echo (isset($row['name'])) ? $row['name'] : '' ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="siteEmail" name="email">
+                                <input type="email" class="form-control" id="siteEmail" name="email" value="<?php echo (isset($row['email'])) ? $row['email'] : '' ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="siteEmail" name="password">
+                                <input type="text" class="form-control" id="siteEmail" name="password" value="<?php echo (isset($row['password'])) ? $row['password'] : '' ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="fb" class="form-label fw-bold">Facebook</label>
@@ -39,7 +39,7 @@ include './libs/handleUserUpdate.php';
                             </div>
                             <div class="mb-3">
                                 <label for="summary" class="form-label fw-bold">Summary</label>
-                                <textarea class="form-control" id="siteDescription" name="summary" rows="3"></textarea>
+                                <textarea class="form-control" id="siteDescription" name="summary" rows="7"><?php echo (isset($row['summary'])) ? $row['summary'] : '' ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ include './libs/handleUserUpdate.php';
                             <img src="uploads/<?php echo (isset($row['profile_pic'])) ? $row['profile_pic']  : '' ?>" alt='' height="250px" class="p-4" />
                         </div>
                         <div class="mb-3">
-                            <button name="simpan" class="btn btn-primary">Change Profile</button>
+                            <button name="simpan" class="btn btn-primary">Submit Change</button>
                         </div>
                     </div>
                 </div>

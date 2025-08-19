@@ -308,8 +308,6 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
                             <h2 class="mx-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
                         </div>
 
-
-
                         <div id="posts" class="row gutter-isotope-item">
                             <?php foreach ($rowPorto as $porto): ?>
                                 <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">

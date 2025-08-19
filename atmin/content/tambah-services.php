@@ -3,86 +3,85 @@
 
     if (isset($_GET['edit'])) {
         $id = $_GET['edit'];
-        $query = mysqli_query($connection, "SELECT * FROM portofolio WHERE id = '$id'");
+        $query = mysqli_query($connection, "SELECT * FROM services WHERE id = '$id'");
         $rowEdit = mysqli_fetch_assoc($query);
 
-        $title = "Edit Portofolio";
+        $title = "Edit Services";
     } else {
-        $title = "Tambah Portofolio";
+        $title = "Tambah Services";
     }
 
     if (isset($_POST['simpan'])) {
         $title = $_POST['title'];
-        $content = $_POST['content'];
+        $description = $_POST['description'];
         $is_active = $_POST['is_active'];
-        $project_link = $_POST['project_link'];
 
 
 
         // buat narik gambar dari upload file
-        if (!empty($_FILES['image']['name'])) {      #$_FILE ini buat ngolah file dari form type file, dan ini buat cek file foto nya udah ke up apa blom ()
-            $image = $_FILES['image']['name'];
-            $tmp_name = $_FILES['image']['tmp_name'];
+        if (!empty($_FILES['logo']['name'])) {      #$_FILE ini buat ngolah file dari form type file, dan ini buat cek file foto nya udah ke up apa blom ()
+            $logo = $_FILES['logo']['name'];
+            $tmp_name = $_FILES['logo']['tmp_name'];
 
             # FIle type checking
             $type = mime_content_type($tmp_name);
-            $allowed_filetype = ['image/jpg', 'image/png', 'image/jpeg'];
+            $allowed_filetype = ['logo/jpg', 'logo/png', 'logo/jpeg'];
 
             if (in_array($type, $allowed_filetype)) {
                 #boleh upload
-                $path = "./uploads/portofolio/";     # ini buat nyimpen file gambar ke folder mana (di db)
+                $path = "./uploads/services/";     # ini buat nyimpen file gambar ke folder mana (di db)
                 if (!is_dir($path)) {   # kalo folder uploads blom ada (di db), dia buat foldernya
                     mkdir($path);
                 }
 
-                $image_name = time() . "-" . basename($image);   #ini buat hashing (enkripsi) gambar pake waktu
+                $image_name = time() . "-" . basename($logo);   #ini buat hashing (enkripsi) gambar pake waktu
                 $target_file = $path . $image_name;
 
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                if (move_uploaded_file($_FILES['logo']['tmp_name'], $target_file)) {
                     # Jika gambarnya ada, maka gambar sebelumnya di replace sm yg baru (logo lama diapus ditimpa yg baru)
-                    if (!empty($row['image'])) {
+                    if (!empty($row['logo'])) {
                         # ini buat cek file logo di uploads udah ada isinya blom, klo udah ada dihapus ditimpa pake yg baru
-                        unlink($path . $row['image']);
+                        unlink($path . $row['logo']);
                     }
                 }
             } else {
                 echo "tidak boleh upload";
                 die;
             }
-            // ini buat edit portofolio klo ada gambar
-            $update_image = "UPDATE portofolio SET title='$title', content='$content', image='$image_name', is_active='$is_active', project_link='$project_link' WHERE id='$id'";
+            // ini buat edit services klo ada gambar
+            $update_image = "UPDATE services SET title='$title', description='$description', logo='$image_name', is_active='$is_active', WHERE id='$id'";
         } else {
-            // ini buat edit portofolio klo gak ada gambar
-            $update_image = "UPDATE portofolio SET title='$title', content='$content', is_active='$is_active', project_link='$project_link' WHERE id='$id'";
+            // ini buat edit services klo gak ada gambar
+            $update_image = "UPDATE services SET title='$title', description='$description', is_active='$is_active', WHERE id='$id'";
         }
 
 
         if ($id) {
-            // disini edit portofolio
+            // disini edit services
             $insert = mysqli_query($connection, $update_image);
             if ($insert) {
-                header("location:?page=porto&ubah=berhasil");
+                header("location:?page=services&ubah=berhasil");
             }
         } else {
-            // disini tambah portofolio
-            $insert = mysqli_query($connection, "INSERT INTO portofolio (title, content, image, is_active, project_link) VALUES ('$title','$content','$image_name','$is_active','$project_link')");
+            // disini tambah services
+            $insert = mysqli_query($connection, "INSERT INTO services (title, description, logo, is_active) VALUES ('$title','$description','$image_name','$is_active')");
             if ($insert) {
-                header("location:?page=porto&tambah=berhasil");
+                header("location:?page=services&tambah=berhasil");
             }
         }
     }
 
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
-        $queryGambar = mysqli_query($connection, "SELECT id, image FROM portofolio WHERE id='$id'");
+        $queryGambar = mysqli_query($connection, "SELECT id, logo FROM services WHERE id='$id'");
         $rowGambar = mysqli_fetch_assoc($queryGambar);
 
-        $image_name = $rowGambar['image'];
-        unlink("uploads/portofolio/" . $image_name);
+        $image_name = $rowGambar['logo'];
+        unlink("uploads/services/" . $image_name);
 
-        $delete = mysqli_query($connection, "DELETE FROM portofolio WHERE id='$id'");
+        $delete = mysqli_query($connection, "DELETE FROM services WHERE id='$id'");
         if ($delete) {
-            header("location:?page=porto&hapus=berhasil");
+            header("location:?page=services&hapus=berhasil");
         }
     }
     ?>
@@ -100,20 +99,16 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $title; ?></h5>
                             <div class="mb-3">
-                                <label for="" class="form-label">Project Name</label>
+                                <label for="" class="form-label">Sevices Name</label>
                                 <input type="text" name="title" class="form-control" required value="<?php echo ($id) ? $rowEdit['title'] : '' ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Project Link</label>
-                                <input type="url" name="project_link" class="form-control" required value="<?php echo ($id) ? $rowEdit['project_link'] : '' ?>">
+                                <label for="" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" required><?php echo ($id) ? $rowEdit['description'] : '' ?></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Content</label>
-                                <textarea name="content" class="form-control" required><?php echo ($id) ? $rowEdit['content'] : '' ?></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Image</label>
-                                <input type="file" name="image" class="form-control">
+                                <label for="" class="form-label">Logo</label>
+                                <input type="file" name="logo" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -128,7 +123,7 @@
                             </select>
                             <div class="my-3 d-flex gap-2">
                                 <button class="btn btn-outline-primary" type="submit" name="simpan">Simpan</button>
-                                <button class="btn btn-outline-success" href="?page=portofolio">Kembali</button>
+                                <button class="btn btn-outline-success" href="?page=services">Kembali</button>
                             </div>
                         </div>
                     </div>

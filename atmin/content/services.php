@@ -1,10 +1,10 @@
 <?php
-$queryPorto = mysqli_query($connection, "SELECT * FROM portofolio ORDER BY id DESC");
+$queryPorto = mysqli_query($connection, "SELECT * FROM services ORDER BY id DESC");
 $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
 ?>
 
 <div class="pagetitle">
-    <h1>Portofolio Content</h1>
+    <h1>Services Content</h1>
 </div><!-- End Page Title -->
 
 <section class="section">
@@ -14,16 +14,16 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Portofolio Content</h5>
+                    <h5 class="card-title">Services Content</h5>
 
                     <div class="mb-3" align="right">
-                        <a href="?page=tambah-porto" class="btn btn-primary">Tambah</a>
+                        <a href="?page=tambah-services" class="btn btn-primary">Tambah</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Gambar</th>
+                                <th>Logo</th>
                                 <th>Judul</th>
                                 <th>Konten</th>
                                 <th>Status</th>
@@ -35,18 +35,18 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
                                 <tr>
                                     <td><?php echo $key += 1; ?></td>
                                     <td>
-                                        <img src="uploads/portofolio/<?php echo $row['image'] ?>" alt="" width="250px">
+                                        <img src="uploads/services/<?php echo $row['image'] ?>" alt="" width="250px">
                                     </td>
                                     <td><?php echo (isset($row['title'])) ? $row['title'] : '' ?></td>
-                                    <td><?php echo (isset($row['content'])) ? $row['content'] : '' ?></td>
+                                    <td><?php echo (isset($row['description'])) ? $row['description'] : '' ?></td>
                                     <td><?php echo (isset($row['is_active'])) ? ($row['is_active'] == 1 ? 'published' : 'drafted') : '' ?></td>
                                     <td>
-                                        <a href="?page=tambah-porto&edit=<?php echo $row['id'] ?>" class="btn btn-success">
+                                        <a href="?page=tambah-services&edit=<?php echo $row['id'] ?>" class="btn btn-success">
                                             Edit
                                         </a>
                                         <a
                                             onclick="return confirm('Apakah anda yakin ingin mneghapus data?')"
-                                            href="?page=tambah-porto&delete=<?php echo $row['id'] ?>"
+                                            href="?page=tambah-services&delete=<?php echo $row['id'] ?>"
                                             class="btn btn-danger">
                                             Delete
                                         </a>

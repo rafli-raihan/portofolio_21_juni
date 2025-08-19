@@ -1,8 +1,18 @@
+<?php
+include './atmin/libs/connection.php';
+
+$queryMe = mysqli_query($connection, "SELECT * FROM me LIMIT 1");
+$rowMe = mysqli_fetch_assoc($queryMe);
+
+$queryPorto = mysqli_query($connection, "SELECT * FROM portofolio ORDER BY id DESC");
+$rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Unfold &mdash; A onepage portfolio HTML template by Colorlib</title>
+    <title>Rafli Raihan &mdash; Portofolio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,7 +96,7 @@
                         <div class="site-logo pos-absolute">
                         </div>
                         <div class="col-md-5 text-right text-lg-right">
-                            <a href="index.html" class="unslate_co--site-logo">Unfold<span>.</span></a>
+                            <a href="index.html" class="unslate_co--site-logo"><?php echo isset($rowMe['name']) ? $rowMe['name'] : '' ?><span>.</span></a>
                         </div>
                     </div>
                 </div>
@@ -99,8 +109,8 @@
                     <div class="row align-items-center">
 
                         <div class="col-md-7 mx-auto text-center">
-                            <h1 class="heading gsap-reveal-hero">Unfold</h1>
-                            <h2 class="subheading gsap-reveal-hero">I’m Glenn Chapman Hoyer A Product Designer Based In San Francisco</h2>
+                            <h1 class="heading gsap-reveal-hero"><?php echo isset($rowMe['name']) ? $rowMe['name'] : '' ?></h1>
+                            <h2 class="subheading gsap-reveal-hero">Web and Flutter Developer from Jakarta, Indonesia</h2>
                         </div>
 
                     </div>
@@ -155,9 +165,7 @@
                             </figure>
                         </div>
                         <div class="col-lg-4 pr-lg-5">
-                            <h3 class="mb-4 heading-h3"><span class="gsap-reveal">We can make it together</span></h3>
-                            <p class="lead gsap-reveal">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there <a href="#">live the blind</a> texts. </p>
-                            <p class="mb-4 gsap-reveal">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            <p class="mb-4 lead gsap-reveal"><?php echo (isset($rowMe['summary'])) ? $rowMe['summary'] : '' ?></p>
                             <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">Download my CV</a></p>
                         </div>
                     </div>
@@ -303,124 +311,20 @@
 
 
                         <div id="posts" class="row gutter-isotope-item">
-                            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-1.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-link2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Shoe Rebranding</h3>
-                                            <p>web, branding</p>
+                            <?php foreach ($rowPorto as $porto): ?>
+                                <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+                                    <a href="<?php echo $porto['project_link'] ?>" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
+                                        <div class="overlay">
+                                            <span class="wrap-icon icon-link2"></span>
+                                            <div class="portfolio-item-content">
+                                                <h3><?php echo (isset($porto['title'])) ? $porto['title'] : '' ?></h3>
+                                                <p><?php echo (isset($porto['content'])) ? $porto['content'] : '' ?></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img src="images/work_1_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-                            <div class="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                                <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img" data-id="3">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-link2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Reworking</h3>
-                                            <p>branding, packaging, illustration</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_2_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item branding packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-4.html" class="portfolio-item isotope-item gsap-reveal-img ajax-load-page" data-id="4">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-link2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Modern Building</h3>
-                                            <p>branding, packaging</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_3_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item web packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-
-                                <a href="images/work_4_full.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Watch">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-photo2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Watch</h3>
-                                            <p>web, packaging</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_4_full.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-
-                            </div>
-
-                            <div class="item illustration packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="images/work_5_md.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Shoe Rebranding">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-photo2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Shoe Rebranding</h3>
-                                            <p>illustration, packaging</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_5_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-2.html" class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img" data-id="2">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-link2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Reshape</h3>
-                                            <p>web, branding</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_6_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item branding packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="images/work_7_a_md.jpg" class="portfolio-item item-portrait isotope-item gsap-reveal-img " data-fancybox="gallery" data-caption="Modern Building">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-photo2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Modern Building</h3>
-                                            <p>branding, packaging</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_7_a_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="https://www.youtube.com/watch?v=mwtbEGNABWU" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Showreel 2019">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-play_circle_filled"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Showreel 2019</h3>
-                                            <p>web, branding</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_8_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
-                            <div class="item web illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="images/work_9_a_md.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Render Packaging">
-                                    <div class="overlay">
-                                        <span class="wrap-icon icon-photo2"></span>
-                                        <div class="portfolio-item-content">
-                                            <h3>Render Packaging</h3>
-                                            <p>web, illustration</p>
-                                        </div>
-                                    </div>
-                                    <img src="images/work_9_a_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                                </a>
-                            </div>
-
+                                        <img src="./atmin/uploads/portofolio/<?php echo $porto['image'] ?>" class="lazyload  img-fluid" alt="Images" />
+                                    </a>
+                                </div>
+                            <?php endforeach ?>
                         </div>
 
                     </div>

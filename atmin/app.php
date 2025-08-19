@@ -24,18 +24,20 @@ if (empty($_SESSION['ID_USER'])) {
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
-        <?= include './inc/sidebar.php'; ?>
+        <?php include './inc/sidebar.php'; ?>
         <!--  Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
-            <?= include './inc/header.php'; ?>
+            <?php include './inc/header.php'; ?>
             <!--  Header End -->
             <!--  Main Content Start -->
-            <?= include './inc/routerview.php'; ?>
+            <main style="min-height: 90vh; padding-left: 50px; padding-right: 50px;">
+                <?php include './inc/routerview.php'; ?>
+            </main>
             <!--  Main Content End -->
             <!--  Footer Start -->
-            <?= include './inc/footer.php'; ?>
+            <?php include './inc/footer.php'; ?>
             <!--  Footer End -->
         </div>
     </div>

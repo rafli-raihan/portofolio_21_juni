@@ -3,7 +3,7 @@
      <!-- Sidebar scroll-->
      <div>
          <div class="brand-logo d-flex align-items-center justify-content-between">
-             <a href="./index.html" class="text-nowrap logo-img">
+             <a href="?page=home" class="text-nowrap logo-img">
                  <img src="assets/images/logos/logo-light.svg" alt="" />
              </a>
              <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -18,23 +18,23 @@
                      <span class="hide-menu">Home</span>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                     <a class="sidebar-link" href="?page=home" aria-expanded="false">
                          <span>
                              <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                          </span>
-                         <span class="hide-menu">Dashboard</span>
+                         <span class="hide-menu">My Profile</span>
                      </a>
                  </li>
                  <li class="nav-small-cap">
                      <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-                     <span class="hide-menu">UI COMPONENTS</span>
+                     <span class="hide-menu">Components</span>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                     <a class="sidebar-link" href="?page=porto" aria-expanded="false">
                          <span>
                              <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
                          </span>
-                         <span class="hide-menu">Buttons</span>
+                         <span class="hide-menu">Portofolio</span>
                      </a>
                  </li>
                  <li class="sidebar-item">

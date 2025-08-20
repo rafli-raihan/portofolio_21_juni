@@ -25,7 +25,7 @@
 
             # FIle type checking
             $type = mime_content_type($tmp_name);
-            $allowed_filetype = ['logo/jpg', 'logo/png', 'logo/jpeg'];
+            $allowed_filetype = ['image/jpg', 'image/png', 'image/jpeg'];
 
             if (in_array($type, $allowed_filetype)) {
                 #boleh upload

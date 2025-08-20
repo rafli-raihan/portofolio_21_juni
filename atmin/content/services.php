@@ -35,7 +35,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
                                 <tr>
                                     <td><?php echo $key += 1; ?></td>
                                     <td>
-                                        <img src="uploads/services/<?php echo $row['image'] ?>" alt="" width="250px">
+                                        <img src="uploads/services/<?php echo $row['logo'] ?>" alt="" width="64px">
                                     </td>
                                     <td><?php echo (isset($row['title'])) ? $row['title'] : '' ?></td>
                                     <td><?php echo (isset($row['description'])) ? $row['description'] : '' ?></td>

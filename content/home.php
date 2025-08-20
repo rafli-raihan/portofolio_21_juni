@@ -3,7 +3,7 @@ $queryMe = mysqli_query($connection, "SELECT * FROM me LIMIT 1");
 $rowMe = mysqli_fetch_assoc($queryMe);
 ?>
 
-<div class="cover-v1 jarallax" style="background-image: url('images/cover_bg_2.jpg');" id="home-section">
+<div class="cover-v1 jarallax" style="background-image: url('atmin/uploads/profile-pic/<?php echo $rowMe['profile_pic'] ?? '' ?>');" id="home-section">
     <div class="container">
         <div class="row align-items-center">
 
@@ -40,7 +40,7 @@ $rowMe = mysqli_fetch_assoc($queryMe);
         <div class="row mt-5 justify-content-between">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <figure class="dotted-bg gsap-reveal-img ">
-                    <img src="images/about_me_pic2.jpg" alt="Image" class="img-fluid">
+                    <img src="atmin/uploads/profile-pic/<?php echo $rowMe['profile_pic'] ?? '' ?>" alt="Image" class="img-fluid">
                 </figure>
             </div>
             <div class="col-lg-4 pr-lg-5">

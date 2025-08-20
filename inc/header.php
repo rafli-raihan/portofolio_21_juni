@@ -3,32 +3,14 @@
     <div class="container">
 
         <div class="row align-items-center justify-content-between text-left">
-            <div class="col-md-5 text-right">
+            <div class="col-md-5 text-left">
                 <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
                     <li class="has-children">
-                        <a href="#home-section" class="nav-link">Home</a>
-                        <ul class="dropdown">
-                            <li>
-                                <a href="index.html">Hero Image BG</a>
-                            </li>
-                            <li>
-                                <a href="index-video.html">Video BG</a>
-                            </li>
-                            <li>
-                                <a href="index-hero-slider.html">Hero Slider</a>
-                            </li>
-                            <li>
-                                <a href="index-sidebar-menu.html">Sidebar Menu</a>
-                            </li>
-                            <li>
-                                <a href="index-right-menu.html">Right Menu</a>
-                            </li>
-                        </ul>
+                        <a href="?page=home" class="nav-link">Home</a>
                     </li>
-                    <li><a href="#about-section" class="nav-link">About</a></li>
-                    <li><a href="#services-section" class="nav-link">Services</a></li>
-                    <li><a href="#skills-section" class="nav-link">Skills</a></li>
-                    <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
+                    <li><a href="?page=services" class="nav-link">Services</a></li>
+                    <li><a href="?page=skills" class="nav-link">Skill</a></li>
+                    <li><a href="?page=portofolio" class="nav-link">Portfolio</a></li>
                 </ul>
             </div>
             <div class="site-logo pos-absolute">

@@ -3,9 +3,6 @@ include './atmin/libs/connection.php';
 
 $queryMe = mysqli_query($connection, "SELECT * FROM me LIMIT 1");
 $rowMe = mysqli_fetch_assoc($queryMe);
-
-$queryPorto = mysqli_query($connection, "SELECT * FROM portofolio WHERE is_active=1 ORDER BY id DESC");
-$rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
 ?>
 
 <!doctype html>
@@ -51,7 +48,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
 
     <div class="unslate_co--site-wrap">
 
-        <div class="unslate_co--site-inner">
+        <div class="unslate_co--site-inner" style="min-height: 100vh;">
 
             <div class="lines-wrap">
                 <div class="lines-inner">
@@ -63,79 +60,11 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
             <?php include 'inc/header.php' ?>
             <!-- END nav -->
 
-            <div class="unslate_co--section" id="portfolio-section">
-                <div class="container">
-
-
-                    <div class="relative">
-                        <div class="loader-portfolio-wrap">
-                            <div class="loader-portfolio"></div>
-                        </div>
-                    </div>
-                    <div id="portfolio-single-holder"></div>
-
-                    <div class="portfolio-wrapper">
-
-                        <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
-                            <h2 class="mx-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
-                        </div>
-
-                        <div id="posts" class="row gutter-isotope-item">
-                            <?php foreach ($rowPorto as $porto): ?>
-                                <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                    <a href="<?php echo $porto['project_link'] ?>" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-                                        <div class="overlay">
-                                            <span class="wrap-icon icon-link2"></span>
-                                            <div class="portfolio-item-content">
-                                                <h3><?php echo (isset($porto['title'])) ? $porto['title'] : '' ?></h3>
-                                                <p><?php echo (isset($porto['content'])) ? $porto['content'] : '' ?></p>
-                                            </div>
-                                        </div>
-                                        <img src="./atmin/uploads/portofolio/<?php echo $porto['image'] ?>" class="lazyload  img-fluid" alt="Images" />
-                                    </a>
-                                </div>
-                            <?php endforeach ?>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
+            <?php include 'atmin/inc/routerview.php' ?>
 
         </div> <!-- END .unslate_co-site-inner -->
 
-        <footer class="unslate_co--footer unslate_co--section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7">
-
-                        <div class="footer-site-logo"><a href="#">Unfold<span>.</span></a></div>
-
-                        <ul class="footer-site-social">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Dribbble</a></li>
-                            <li><a href="#">Behance</a></li>
-                        </ul>
-
-                        <p class="site-copyright">
-
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="icon-heart"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php include 'inc/footer.php' ?>
 
 
     </div>

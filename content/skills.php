@@ -1,3 +1,8 @@
+<?php
+$querySkills = mysqli_query($connection, "SELECT * FROM skills ORDER BY id DESC");
+$rowSkills = mysqli_fetch_all($querySkills, MYSQLI_ASSOC);
+?>
+
 <!-- Skills Start -->
 <div class="unslate_co--section section-counter" id="skills-section" style="padding-top: 100px;">
     <div class="container">
@@ -8,15 +13,18 @@
 
 
         <div class="row pt-5">
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-                <div class="counter-v1 text-center">
-                    <span class="number-wrap">
-                        <span class="number number-counter" data-number="90">0</span>
-                        <span class="append-text">%</span>
-                    </span>
-                    <span class="counter-label">WordPress</span>
+            <?php foreach ($rowSkills as $skill): ?>
+                <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3 p-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="counter-v1 text-center">
+                        <span class="number-wrap">
+                            <span class="number number-counter" data-number="<?php echo $skill['percentage'] ?? '0' ?>"></span>
+                            <span class="append-text">%</span>
+                        </span>
+                        <h3 class="d-block"><?php echo $skill['title'] ?? '0' ?></h3>
+                        <span class="counter-label text-danger"><?php echo $skill['description'] ?? '0' ?></span>
+                    </div>
                 </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 </div>

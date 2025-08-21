@@ -6,11 +6,10 @@
                  <div class="footer-site-logo"><a href="#">Unfold<span>.</span></a></div>
 
                  <ul class="footer-site-social">
-                     <li><a href="#">Facebook</a></li>
-                     <li><a href="#">Twitter</a></li>
-                     <li><a href="#">Instagram</a></li>
-                     <li><a href="#">Dribbble</a></li>
-                     <li><a href="#">Behance</a></li>
+                     <li><a href="<?php echo $rowMe['fb'] ?? '' ?>">Facebook</a></li>
+                     <li><a href="<?php echo $rowMe['ig'] ?? '' ?>">Instagram</a></li>
+                     <li><a href="<?php echo $rowMe['github'] ?? '' ?>">Github</a></li>
+                     <li><a href="<?php echo $rowMe['linkedin'] ?? '' ?>">Linkedin</a></li>
                  </ul>
 
                  <p class="site-copyright">

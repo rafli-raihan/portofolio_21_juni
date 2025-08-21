@@ -53,7 +53,7 @@ include './libs/handleUserUpdate.php';
                         <div class="mb-3">
                             <label for="profile_pics" class="form-label">Site Logo</label>
                             <input type="file" class="form-control" id="siteLogo" name="profile_picture" accept="image/*">
-                            <img src="uploads/<?php echo (isset($row['profile_pic'])) ? $row['profile_pic']  : '' ?>" alt='' height="250px" class="p-4" />
+                            <img src="uploads/<?php echo $row['profile_pic'] ?? '' ?>" alt='' height="250px" class="p-4" />
                         </div>
                         <div class="mb-3">
                             <button name="simpan" class="btn btn-primary">Submit Change</button>

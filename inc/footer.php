@@ -3,7 +3,7 @@
          <div class="row justify-content-center">
              <div class="col-md-7">
 
-                 <div class="footer-site-logo"><a href="#">Unfold<span>.</span></a></div>
+                 <div class="footer-site-logo"><a href="#"><?php echo $rowMe['name'] ?? '' ?><span>.</span></a></div>
 
                  <ul class="footer-site-social">
                      <li><a href="<?php echo $rowMe['fb'] ?? '' ?>">Facebook</a></li>

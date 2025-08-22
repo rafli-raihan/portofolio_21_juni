@@ -21,7 +21,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
             <div id="posts" class="row gutter-isotope-item">
                 <?php foreach ($rowPorto as $porto): ?>
                     <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                        <a href="<?php echo $porto['project_link'] ?>" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
+                        <a href="<?php echo $porto['project_link'] ?? '' ?>" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
                             <div class="overlay">
                                 <span class="wrap-icon icon-link2"></span>
                                 <div class="portfolio-item-content">
@@ -29,7 +29,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
                                     <p><?php echo (isset($porto['content'])) ? $porto['content'] : '' ?></p>
                                 </div>
                             </div>
-                            <img src="./atmin/uploads/portofolio/<?php echo $porto['image'] ?>" class="lazyload  img-fluid" alt="Images" />
+                            <img src="./atmin/uploads/portofolio/<?php echo $porto['image'] ?>" class="lazyload img-fluid" alt="Images" />
                         </a>
                     </div>
                 <?php endforeach ?>

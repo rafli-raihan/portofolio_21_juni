@@ -45,7 +45,7 @@ $rowMe = mysqli_fetch_assoc($queryMe);
             </div>
             <div class="col-lg-4 pr-lg-5">
                 <p class="mb-4 lead gsap-reveal"><?php echo (isset($rowMe['summary'])) ? $rowMe['summary'] : '' ?></p>
-                <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">Download my CV</a></p>
+
             </div>
         </div>
     </div>

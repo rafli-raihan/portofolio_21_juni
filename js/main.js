@@ -440,6 +440,15 @@ var portfolioItemClick = function() {
 		var id = $(this).data('id'),
 			href = $(this).attr('href');
 
+		// Check if the link is external
+		var isExternal = href.indexOf(window.location.origin) !== 0;
+
+    	if (isExternal) {
+      	// For external links: let browser handle it normally (open in new tab)
+      		$(this).attr("target", "_blank").attr("rel", "noopener noreferrer");
+      		return; // don’t preventDefault
+    	}
+
 		if ( $('#portfolio-single-holder > div').length ) {
 			$('#portfolio-single-holder > div').remove();
 		} 

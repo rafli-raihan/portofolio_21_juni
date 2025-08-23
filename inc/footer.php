@@ -6,10 +6,10 @@
                  <div class="footer-site-logo"><a href="#"><?php echo $rowMe['name'] ?? '' ?><span>.</span></a></div>
 
                  <ul class="footer-site-social">
-                     <li><a href="<?php echo $rowMe['fb'] ?? '' ?>">Facebook</a></li>
-                     <li><a href="<?php echo $rowMe['ig'] ?? '' ?>">Instagram</a></li>
-                     <li><a href="<?php echo $rowMe['github'] ?? '' ?>">Github</a></li>
-                     <li><a href="<?php echo $rowMe['linkedin'] ?? '' ?>">Linkedin</a></li>
+                     <li><a href="<?php echo $rowMe['fb'] ?? '' ?>" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                     <li><a href="<?php echo $rowMe['ig'] ?? '' ?>" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                     <li><a href="<?php echo $rowMe['github'] ?? '' ?>" target="_blank" rel="noopener noreferrer">Github</a></li>
+                     <li><a href="<?php echo $rowMe['linkedin'] ?? '' ?>" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
                  </ul>
 
                  <p class="site-copyright">

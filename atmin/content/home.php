@@ -4,21 +4,21 @@ include './libs/handleUserUpdate.php';
 <div class="container-fluid">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8 order-last order-lg-first">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Admin Dashboard Settings</h5>
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Nama</label>
+                                <label for="name" class="form-label fw-bold">Nama</label>
                                 <input type="text" class="form-control" id="siteTitle" name="name" value="<?php echo (isset($row['name'])) ? $row['name'] : '' ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label fw-bold">Email</label>
                                 <input type="email" class="form-control" id="siteEmail" name="email" value="<?php echo (isset($row['email'])) ? $row['email'] : '' ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class="form-label fw-bold">Password</label>
                                 <input type="text" class="form-control" id="siteEmail" name="password" value="<?php echo (isset($row['password'])) ? $row['password'] : '' ?>">
                             </div>
                             <div class="mb-3">
@@ -48,7 +48,7 @@ include './libs/handleUserUpdate.php';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 order-first order-lg-last">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title d-flex align-items-center gap-2">Pick your profile picture<span><iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Locations"></iconify-icon></span>

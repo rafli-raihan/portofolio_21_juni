@@ -15,7 +15,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
         <div class="portfolio-wrapper">
 
             <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
-                <h2 class="mx-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
+                <h2 class="mx-auto heading-h2"><span class="gsap-reveal">Portofolio</span></h2>
             </div>
 
             <div id="posts" class="row gutter-isotope-item">

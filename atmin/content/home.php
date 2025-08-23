@@ -41,6 +41,9 @@ include './libs/handleUserUpdate.php';
                                 <label for="summary" class="form-label fw-bold">Summary</label>
                                 <textarea class="form-control" id="siteDescription" name="summary" rows="7"><?php echo (isset($row['summary'])) ? $row['summary'] : '' ?></textarea>
                             </div>
+                            <div class="mb-3">
+                                <button name="simpan" class="btn btn-primary">Submit Change</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,18 +51,19 @@ include './libs/handleUserUpdate.php';
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title d-flex align-items-center gap-2 mb-5 pb-3">Pick your profile picture<span><iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Locations"></iconify-icon></span>
+                        <h5 class="card-title d-flex align-items-center gap-2">Pick your profile picture<span><iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Locations"></iconify-icon></span>
                         </h5>
                         <div class="mb-3">
                             <label for="profile_pics" class="form-label">Site Logo</label>
                             <input type="file" class="form-control" id="siteLogo" name="profile_picture" accept="image/*">
-                            <img src="uploads/<?php echo $row['profile_pic'] ?? '' ?>" alt='' height="250px" class="p-4" />
-                        </div>
-                        <div class="mb-3">
-                            <button name="simpan" class="btn btn-primary">Submit Change</button>
+                            <div class="my-2">
+                                <span>Current Picture:</span>
+                                <img src="uploads/profile-pic/<?php echo $row['profile_pic'] ?? '' ?>" alt='' class="img-fluid rounded-3" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 </div>

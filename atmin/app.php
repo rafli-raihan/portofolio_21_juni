@@ -32,7 +32,7 @@ if (empty($_SESSION['ID_USER'])) {
             <?php include './inc/header.php'; ?>
             <!--  Header End -->
             <!--  Main Content Start -->
-            <main style="min-height: 90vh; padding-left: 50px; padding-right: 50px;">
+            <main style="padding-top: 15vh; min-height: 90vh">
                 <?php include './inc/routerview.php'; ?>
             </main>
             <!--  Main Content End -->

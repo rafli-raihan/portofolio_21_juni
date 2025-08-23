@@ -9,7 +9,7 @@
                     </ul>
                     <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
                         <li><a href="?page=home" class="nav-link">Home</a></li>
-                        <li><a href="?page=portofolio" class="nav-link">Portfolio</a></li>
+                        <li><a href="?page=portofolio" class="nav-link">Portofolio</a></li>
                     </ul>
                 </div>
                 <div class="site-logo pos-absolute">

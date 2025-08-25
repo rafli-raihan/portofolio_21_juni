@@ -29,7 +29,7 @@ $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
                                 foreach ($rowPorto as $key => $row): ?>
                                     <tr>
                                         <td><?php echo $key += 1; ?></td>
-                                        <td>
+                                        <td style="background-color: gray;">
                                             <img src="uploads/services/<?php echo $row['logo'] ?>" alt="" width="64px">
                                         </td>
                                         <td><?php echo (isset($row['title'])) ? $row['title'] : '' ?></td>

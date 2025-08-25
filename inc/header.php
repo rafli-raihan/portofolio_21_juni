@@ -1,7 +1,6 @@
     <nav class="unslate_co--site-nav site-nav-target">
 
         <div class="container">
-
             <div class="row align-items-center justify-content-between text-left">
                 <div class="col-md-5 text-left">
                     <ul class="site-nav-ul-none-onepage text-left d-inline-block d-lg-none">

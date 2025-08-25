@@ -10,7 +10,7 @@ include 'libs/auth/process-login.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dash_Rafli</title>
+    <title>RafDash</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/seodashlogo.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
 </head>
